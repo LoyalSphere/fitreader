@@ -44,7 +44,7 @@ class Fit
       finished.push(*defs.values)
       io.close
       @messages = finished.group_by(&:global_msg_num)
-                          .map { |x| Message.new x }
+                          .map { |x| Fitreader::Message.new x }
                           .reject { |x| x.data.nil? }
     rescue => e
       puts "error: #{e}\n#{e.backtrace}"
